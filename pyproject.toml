@@ -1,0 +1,25 @@
+[project]
+name = "product-price-dnn"
+version = "0.1.0"
+description = "Residual deep neural network for product price prediction from text summaries"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "datasets==3.6.0",
+    "huggingface-hub>=0.20.0",
+    "numpy>=2.0.0",
+    "pandas>=2.2.0",
+    "plotly>=5.0.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "scikit-learn>=1.5.0",
+    "torch>=2.2.0",
+    "tqdm>=4.66.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["pricer*"]
