@@ -1,6 +1,6 @@
 # Product Price Deep Neural Network
 
-A standalone residual deep neural network that predicts product prices from text summaries. Extracted from the [LLM Engineering](https://github.com/ed-donner/llm_engineering) Week 6 pricer work, packaged to show a full train → evaluate flow we ran ourselves.
+A standalone residual deep neural network that predicts product prices from text summaries.
 
 The model hashes product text with scikit-learn's `HashingVectorizer`, then regresses log-normalized price with a deep PyTorch network of residual blocks (~289M parameters at default settings).
 
@@ -106,19 +106,4 @@ The evaluator prints per-example absolute error (color-coded) and shows Plotly s
 | Target | Log-price, standardized on the training set |
 | Loss | L1 (MAE) on normalized targets |
 | Optimizer | AdamW (`lr=0.001`, `weight_decay=0.01`) |
-
-Device selection is automatic: CUDA → MPS → CPU.
-
-## Publishing this as its own GitHub repo
-
-This folder is already self-contained. From inside `product-price-dnn`:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit: product price deep neural network"
-gh repo create product-price-dnn --public --source=. --remote=origin --push
-```
-
-Do **not** commit `.env` or large `*.pth` weight files (both are gitignored). Host weights externally if you want to share them.
 
